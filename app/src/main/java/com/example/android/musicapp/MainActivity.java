@@ -1,31 +1,31 @@
 package com.example.android.musicapp;
 
-import android.content.Context;
-import android.content.Intent;
-import android.media.AudioManager;
-import android.media.Image;
-import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.SeekBar;
-import android.widget.TextView;
-import android.widget.Toast;
+        import android.content.Context;
+        import android.content.Intent;
+        import android.media.AudioManager;
+        import android.media.Image;
+        import android.media.MediaPlayer;
+        import android.support.v7.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.AdapterView;
+        import android.widget.ImageView;
+        import android.widget.ListView;
+        import android.widget.SeekBar;
+        import android.widget.TextView;
+        import android.widget.Toast;
 
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
+        import java.io.IOException;
+        import java.lang.reflect.Array;
+        import java.util.ArrayList;
+        import java.util.concurrent.TimeUnit;
+        import java.util.logging.Handler;
+        import java.util.logging.LogRecord;
 
-import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT;
-import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK;
-import static com.example.android.musicapp.R.drawable.play;
-import static com.example.android.musicapp.R.layout.activity_songs;
+        import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT;
+        import static android.media.AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK;
+        import static com.example.android.musicapp.R.drawable.play;
+        import static com.example.android.musicapp.R.layout.activity_songs;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -124,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                         //Media Player
                         play = (ImageView) findViewById(R.id.btn_play);
                         mediaPlayer.start();
-//                        play.setBackgroundResource(R.drawable.pausebtn);
+
                         play.setImageDrawable(getResources().getDrawable(R.drawable.pausebtn));
 
                         play.setOnClickListener(new View.OnClickListener() {
@@ -134,12 +134,11 @@ public class MainActivity extends AppCompatActivity {
                                     mediaPlayer.pause();
                                     play.setImageDrawable(getResources().getDrawable(R.drawable.playerbtn));
 
-//                                    play.setBackgroundResource(R.drawable.playerbtn);
 
                                 } else {
                                     mediaPlayer.start();
                                     play.setImageDrawable(getResources().getDrawable(R.drawable.pausebtn));
-//                                    play.setBackgroundResource(R.drawable.pausebtn);
+
 
                                 }
                             }
@@ -166,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     mediaPlayer.start();
                                 } else {
-//
+
                                     mediaPlayer.stop();
                                 }
 
@@ -175,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 
                         //previous button
                         prev = (ImageView) findViewById(R.id.btn_prev);
-                        positionPrev=position;
+                        positionPrev = position;
                         prev.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -191,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     mediaPlayer.start();
                                 } else {
-                                  mediaPlayer.stop();
+                                    mediaPlayer.stop();
                                 }
                             }
                         });
@@ -219,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
             mediaPlayer.release();
             mediaPlayer = null;
             //Abandon focus when play back is complete
-//            audioManager.abandonAudioFocus();
+            audioManager.abandonAudioFocus(mOnAudioFocusListener);
         }
     }
 

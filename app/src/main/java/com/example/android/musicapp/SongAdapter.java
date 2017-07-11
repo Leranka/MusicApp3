@@ -24,16 +24,16 @@ import static java.lang.Integer.parseInt;
 public class SongAdapter extends ArrayAdapter<Song> {
     private int mColorResourceId;
 
-    public SongAdapter(Activity context, ArrayList<Song>songs, int colorResourceId){
+    public SongAdapter(Activity context, ArrayList<Song> songs, int colorResourceId) {
         super(context, 0, songs);
         mColorResourceId = colorResourceId;
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(int position, View convertView, ViewGroup parent) {
         //check id the views is being used otherwise inflate
         View listView = convertView;
-        if (listView == null){
+        if (listView == null) {
             listView = LayoutInflater.from(getContext()).inflate(
                     R.layout.activity_songs_item, parent, false);
         }
@@ -54,10 +54,8 @@ public class SongAdapter extends ArrayAdapter<Song> {
         defaultTextView.setText("" + currentWord.getMduration());
 
 
-
         //find the color that the resource maps
-        int color = ContextCompat.getColor(getContext(),mColorResourceId);
-
+        int color = ContextCompat.getColor(getContext(), mColorResourceId);
 
 
         //return the whole list item layout
